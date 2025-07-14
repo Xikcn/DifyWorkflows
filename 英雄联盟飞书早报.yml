@@ -1,0 +1,1450 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 英雄联盟飞书早报
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.16@d41b09aca46cdd3876f70b4c91d464c4588fc0bdc844ced6ee426283ead6ce8e
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/json_process:0.0.2@dde6d7b676ccdcea89206d29232181a840170c19277d3d978e27cd1e3c92c707
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1750778341043-source-1750777590075-target
+      selected: false
+      source: '1750778341043'
+      sourceHandle: source
+      target: '1750777590075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1750777275269-source-1750778458362-target
+      selected: false
+      source: '1750777275269'
+      sourceHandle: source
+      target: '1750778458362'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1750777275269-source-17507792410610-target
+      selected: false
+      source: '1750777275269'
+      sourceHandle: source
+      target: '17507792410610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1750784643894-source-1750778341043-target
+      selected: false
+      source: '1750784643894'
+      sourceHandle: source
+      target: '1750778341043'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1750777275269-source-1750786911191-target
+      selected: false
+      source: '1750777275269'
+      sourceHandle: source
+      target: '1750786911191'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 17507792410610-source-17507875507680-target
+      selected: false
+      source: '17507792410610'
+      sourceHandle: source
+      target: '17507875507680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1750786911191-source-17507875528150-target
+      selected: false
+      source: '1750786911191'
+      sourceHandle: source
+      target: '17507875528150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1750778458362-source-17507878193810-target
+      selected: false
+      source: '1750778458362'
+      sourceHandle: source
+      target: '17507878193810'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 17507875507680-source-17507878314520-target
+      selected: false
+      source: '17507875507680'
+      sourceHandle: source
+      target: '17507878314520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 17507875528150-source-17507878326610-target
+      selected: false
+      source: '17507875528150'
+      sourceHandle: source
+      target: '17507878326610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 17507878193810-source-17507893912800-target
+      selected: false
+      source: '17507878193810'
+      sourceHandle: source
+      target: '17507893912800'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 17507893912800-source-1750784643894-target
+      selected: false
+      source: '17507893912800'
+      sourceHandle: source
+      target: '1750784643894'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 17507878314520-source-1750784643894-target
+      selected: false
+      source: '17507878314520'
+      sourceHandle: source
+      target: '1750784643894'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 17507878326610-source-1750784643894-target
+      selected: false
+      source: '17507878326610'
+      sourceHandle: source
+      target: '1750784643894'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1750777275269'
+      position:
+        x: 47.789629158043454
+        y: 236.7313707086015
+      positionAbsolute:
+        x: 47.789629158043454
+        y: 236.7313707086015
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs: []
+        selected: false
+        title: 结束
+        type: end
+      height: 54
+      id: '1750777590075'
+      position:
+        x: 2105.329385891061
+        y: 147.27799502563724
+      positionAbsolute:
+        x: 2105.329385891061
+        y: 147.27799502563724
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_type: builtin
+        selected: false
+        title: 发送飞书应用消息
+        tool_configurations:
+          msg_type: post
+          receive_id_type: user_id
+        tool_description: 发送飞书应用消息
+        tool_label: 发送飞书应用消息
+        tool_name: send_bot_message
+        tool_parameters:
+          content:
+            type: mixed
+            value: "{\n    \"zh_cn\": {\n        \"title\": \"英雄联盟今日快讯\",\n      \
+              \  \"content\": [\n            [{\n                \"tag\": \"md\",\n\
+              \                \"text\": \"{{#1750784643894.var_1#}}\"\n         \
+              \   }],\n           [{\n                \"tag\": \"md\",\n         \
+              \       \"text\": \"{{#1750784643894.var_2#}}\"\n            }],\n \
+              \           [{\n                \"tag\": \"md\",\n                \"\
+              text\": \"{{#1750784643894.var_3#}}\"\n            }]\n        ]\n \
+              \   }\n}"
+          receive_id:
+            type: mixed
+            value: 8f8e3gcc
+        type: tool
+      height: 116
+      id: '1750778341043'
+      position:
+        x: 1749.3414208719528
+        y: 92.50662069489388
+      positionAbsolute:
+        x: 1749.3414208719528
+        y: 92.50662069489388
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for linking to webpages
+            ja_JP: used for linking to webpages
+            pt_BR: used for linking to webpages
+            zh_Hans: 用于链接到网页
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网页链接
+          llm_description: url for scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/100.0.1000.0 Safari/537.36
+          form: form
+          human_description:
+            en_US: used for identifying the browser.
+            ja_JP: used for identifying the browser.
+            pt_BR: used for identifying the browser.
+            zh_Hans: 用于识别浏览器。
+          label:
+            en_US: User Agent
+            ja_JP: User Agent
+            pt_BR: User Agent
+            zh_Hans: User Agent
+          llm_description: null
+          max: null
+          min: null
+          name: user_agent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: If true, the crawler will only return the page summary content.
+            ja_JP: If true, the crawler will only return the page summary content.
+            pt_BR: If true, the crawler will only return the page summary content.
+            zh_Hans: 如果启用，爬虫将仅返回页面摘要内容。
+          label:
+            en_US: Whether to generate summary
+            ja_JP: Whether to generate summary
+            pt_BR: Whether to generate summary
+            zh_Hans: 是否生成摘要
+          llm_description: null
+          max: null
+          min: null
+          name: generate_summary
+          options:
+          - label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'true'
+          - label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          generate_summary: ''
+          url: ''
+          user_agent: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 全英雄排行
+        tool_configurations:
+          generate_summary: 0
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_description: 一个用于爬取网页的工具。
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: https://op.gg/zh-cn/lol/champions?tier=diamond_plus
+        type: tool
+      height: 116
+      id: '1750778458362'
+      position:
+        x: 359.2651389364791
+        y: -11.776600911368448
+      positionAbsolute:
+        x: 359.2651389364791
+        y: -11.776600911368448
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for linking to webpages
+            ja_JP: used for linking to webpages
+            pt_BR: used for linking to webpages
+            zh_Hans: 用于链接到网页
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网页链接
+          llm_description: url for scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/100.0.1000.0 Safari/537.36
+          form: form
+          human_description:
+            en_US: used for identifying the browser.
+            ja_JP: used for identifying the browser.
+            pt_BR: used for identifying the browser.
+            zh_Hans: 用于识别浏览器。
+          label:
+            en_US: User Agent
+            ja_JP: User Agent
+            pt_BR: User Agent
+            zh_Hans: User Agent
+          llm_description: null
+          max: null
+          min: null
+          name: user_agent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: If true, the crawler will only return the page summary content.
+            ja_JP: If true, the crawler will only return the page summary content.
+            pt_BR: If true, the crawler will only return the page summary content.
+            zh_Hans: 如果启用，爬虫将仅返回页面摘要内容。
+          label:
+            en_US: Whether to generate summary
+            ja_JP: Whether to generate summary
+            pt_BR: Whether to generate summary
+            zh_Hans: 是否生成摘要
+          llm_description: null
+          max: null
+          min: null
+          name: generate_summary
+          options:
+          - label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'true'
+          - label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          generate_summary: ''
+          url: ''
+          user_agent: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 刀妹上单
+        tool_configurations:
+          generate_summary: 0
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_description: 一个用于爬取网页的工具。
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: https://op.gg/zh-cn/lol/champions/irelia/build/top?type=ranked&tier=diamond_plus
+        type: tool
+      height: 116
+      id: '17507792410610'
+      position:
+        x: 359.2651389364791
+        y: 125.84942359706582
+      positionAbsolute:
+        x: 359.2651389364791
+        y: 125.84942359706582
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\n\ndef main(arg1: str, arg2: str, arg3: str) -> dict:\n    return\
+          \ {\n        \"var_1\": arg1.replace(\"\\n\",\"\\\\n\") ,\n        \"var_2\"\
+          : arg2.replace(\"\\n\",\"\\\\n\") ,\n        \"var_3\": arg3.replace(\"\\\
+          n\",\"\\\\n\")\n        }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          var_1:
+            children: null
+            type: string
+          var_2:
+            children: null
+            type: string
+          var_3:
+            children: null
+            type: string
+        selected: false
+        title: 综合
+        type: code
+        variables:
+        - value_selector:
+          - '17507893912800'
+          - text
+          variable: arg1
+        - value_selector:
+          - '17507878326610'
+          - text
+          variable: arg2
+        - value_selector:
+          - '17507878314520'
+          - text
+          variable: arg3
+      height: 54
+      id: '1750784643894'
+      position:
+        x: 1362.0553402913717
+        y: 125.84942359706582
+      positionAbsolute:
+        x: 1362.0553402913717
+        y: 125.84942359706582
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for linking to webpages
+            ja_JP: used for linking to webpages
+            pt_BR: used for linking to webpages
+            zh_Hans: 用于链接到网页
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网页链接
+          llm_description: url for scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/100.0.1000.0 Safari/537.36
+          form: form
+          human_description:
+            en_US: used for identifying the browser.
+            ja_JP: used for identifying the browser.
+            pt_BR: used for identifying the browser.
+            zh_Hans: 用于识别浏览器。
+          label:
+            en_US: User Agent
+            ja_JP: User Agent
+            pt_BR: User Agent
+            zh_Hans: User Agent
+          llm_description: null
+          max: null
+          min: null
+          name: user_agent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: If true, the crawler will only return the page summary content.
+            ja_JP: If true, the crawler will only return the page summary content.
+            pt_BR: If true, the crawler will only return the page summary content.
+            zh_Hans: 如果启用，爬虫将仅返回页面摘要内容。
+          label:
+            en_US: Whether to generate summary
+            ja_JP: Whether to generate summary
+            pt_BR: Whether to generate summary
+            zh_Hans: 是否生成摘要
+          llm_description: null
+          max: null
+          min: null
+          name: generate_summary
+          options:
+          - label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'true'
+          - label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          generate_summary: ''
+          url: ''
+          user_agent: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 刀妹中单
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_description: 一个用于爬取网页的工具。
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: https://op.gg/zh-cn/lol/champions/irelia/build/mid?type=ranked&tier=diamond_plus
+        type: tool
+      height: 116
+      id: '1750786911191'
+      position:
+        x: 359.2651389364791
+        y: 277.75172821078786
+      positionAbsolute:
+        x: 359.2651389364791
+        y: 277.75172821078786
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '17507792410610'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-V3
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: aab58289-6c73-43ca-b2c5-abbec1ad0cdb
+          role: system
+          text: "请分析以下内容：{{#17507792410610.text#}}\n\n输出：介绍上单【刀锋舞者】详细内容\n\n- 回答以markdown格式返回\n\
+            - 回答需要条理清晰，使用分点和表格等方式\n\n输出格式：\n   以 JSON 格式输出结果，结构如下：\n   ```json\n \
+            \  {\n     \"markdown\": \"#15.12 版本上单刀妹 ...\"\n   }\n   ```"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              ? ''
+              : description: markdown
+                type: string
+            required:
+            - ''
+            type: object
+        structured_output_enabled: true
+        title: 刀妹上单
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '17507875507680'
+      position:
+        x: 647.2724646535544
+        y: 125.84942359706582
+      positionAbsolute:
+        x: 647.2724646535544
+        y: 125.84942359706582
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1750786911191'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-V3
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: aab58289-6c73-43ca-b2c5-abbec1ad0cdb
+          role: system
+          text: "请分析以下内容：{{#1750786911191.text#}}\n\n输出：介绍中单【刀锋舞者】详细内容\n\n- 回答以markdown格式返回\n\
+            - 回答需要条理清晰，使用分点和表格等方式\n\n输出格式：\n   以 JSON 格式输出结果，结构如下：\n   ```json\n \
+            \  {\n     \"markdown\": \"#15.12 版本中单刀妹...\"\n   }\n   ```"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              ? ''
+              : description: markdown
+                type: string
+            required:
+            - ''
+            type: object
+        structured_output_enabled: true
+        title: 刀妹中单
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '17507875528150'
+      position:
+        x: 637.3233153587419
+        y: 277.75172821078786
+      positionAbsolute:
+        x: 637.3233153587419
+        y: 277.75172821078786
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1750778458362'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-V3
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: aab58289-6c73-43ca-b2c5-abbec1ad0cdb
+          role: system
+          text: "请分析以下内容：{{#1750778458362.text#}}\n\n输出：介绍当前版本各个分路推荐英雄与相关数据\n\n- 回答以markdown格式返回\n\
+            - 回答需要条理清晰，使用分点和表格等方式\n\n输出格式：\n   以 JSON 格式输出结果，结构如下：\n   ```json\n \
+            \  {\n     \"markdown\": \"#15.12 版本推荐英雄指南 ...\"\n   }\n   ```"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              ? ''
+              : description: markdown
+                type: string
+            required:
+            - ''
+            type: object
+        structured_output_enabled: true
+        title: 全英雄排行
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '17507878193810'
+      position:
+        x: 647.2724646535544
+        y: -11.776600911368448
+      positionAbsolute:
+        x: 647.2724646535544
+        y: -11.776600911368448
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON数据
+            zh_Hans: JSON数据
+          label:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON data
+            zh_Hans: JSON数据
+          llm_description: JSON data to be processed
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON fields to be parsed
+            ja_JP: JSON fields to be parsed
+            pt_BR: JSON fields to be parsed
+            zh_Hans: 需要解析的 JSON 字段
+          label:
+            en_US: JSON filter
+            ja_JP: JSON filter
+            pt_BR: JSON filter
+            zh_Hans: JSON解析对象
+          llm_description: JSON fields to be parsed
+          max: null
+          min: null
+          name: json_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Ensure the JSON output is ASCII encoded
+            ja_JP: Ensure the JSON output is ASCII encoded
+            pt_BR: Ensure the JSON output is ASCII encoded
+            zh_Hans: 确保输出的 JSON 是 ASCII 编码
+          label:
+            en_US: Ensure ASCII
+            ja_JP: Ensure ASCII
+            pt_BR: Ensure ASCII
+            zh_Hans: 确保 ASCII
+          llm_description: ''
+          max: null
+          min: null
+          name: ensure_ascii
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          content: ''
+          ensure_ascii: ''
+          json_filter: ''
+        provider_id: langgenius/json_process/json_process
+        provider_name: langgenius/json_process/json_process
+        provider_type: builtin
+        selected: false
+        title: 刀妹上单
+        tool_configurations:
+          ensure_ascii: 1
+        tool_description: 一个解析JSON对象的工具
+        tool_label: JSON 解析
+        tool_name: parse
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17507875507680.structured_output#}}'
+          json_filter:
+            type: mixed
+            value: markdown
+        type: tool
+      height: 90
+      id: '17507878314520'
+      position:
+        x: 928.2079051006694
+        y: 125.84942359706582
+      positionAbsolute:
+        x: 928.2079051006694
+        y: 125.84942359706582
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON数据
+            zh_Hans: JSON数据
+          label:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON data
+            zh_Hans: JSON数据
+          llm_description: JSON data to be processed
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON fields to be parsed
+            ja_JP: JSON fields to be parsed
+            pt_BR: JSON fields to be parsed
+            zh_Hans: 需要解析的 JSON 字段
+          label:
+            en_US: JSON filter
+            ja_JP: JSON filter
+            pt_BR: JSON filter
+            zh_Hans: JSON解析对象
+          llm_description: JSON fields to be parsed
+          max: null
+          min: null
+          name: json_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Ensure the JSON output is ASCII encoded
+            ja_JP: Ensure the JSON output is ASCII encoded
+            pt_BR: Ensure the JSON output is ASCII encoded
+            zh_Hans: 确保输出的 JSON 是 ASCII 编码
+          label:
+            en_US: Ensure ASCII
+            ja_JP: Ensure ASCII
+            pt_BR: Ensure ASCII
+            zh_Hans: 确保 ASCII
+          llm_description: ''
+          max: null
+          min: null
+          name: ensure_ascii
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          content: ''
+          ensure_ascii: ''
+          json_filter: ''
+        provider_id: langgenius/json_process/json_process
+        provider_name: langgenius/json_process/json_process
+        provider_type: builtin
+        selected: false
+        title: 刀妹中单
+        tool_configurations:
+          ensure_ascii: 1
+        tool_description: 一个解析JSON对象的工具
+        tool_label: JSON 解析
+        tool_name: parse
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17507875528150.structured_output#}}'
+          json_filter:
+            type: mixed
+            value: markdown
+        type: tool
+      height: 90
+      id: '17507878326610'
+      position:
+        x: 928.2079051006694
+        y: 269.0462225778266
+      positionAbsolute:
+        x: 928.2079051006694
+        y: 269.0462225778266
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON数据
+            zh_Hans: JSON数据
+          label:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON data
+            zh_Hans: JSON数据
+          llm_description: JSON data to be processed
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON fields to be parsed
+            ja_JP: JSON fields to be parsed
+            pt_BR: JSON fields to be parsed
+            zh_Hans: 需要解析的 JSON 字段
+          label:
+            en_US: JSON filter
+            ja_JP: JSON filter
+            pt_BR: JSON filter
+            zh_Hans: JSON解析对象
+          llm_description: JSON fields to be parsed
+          max: null
+          min: null
+          name: json_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Ensure the JSON output is ASCII encoded
+            ja_JP: Ensure the JSON output is ASCII encoded
+            pt_BR: Ensure the JSON output is ASCII encoded
+            zh_Hans: 确保输出的 JSON 是 ASCII 编码
+          label:
+            en_US: Ensure ASCII
+            ja_JP: Ensure ASCII
+            pt_BR: Ensure ASCII
+            zh_Hans: 确保 ASCII
+          llm_description: ''
+          max: null
+          min: null
+          name: ensure_ascii
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          content: ''
+          ensure_ascii: ''
+          json_filter: ''
+        provider_id: langgenius/json_process/json_process
+        provider_name: langgenius/json_process/json_process
+        provider_type: builtin
+        selected: false
+        title: 全英雄排行
+        tool_configurations:
+          ensure_ascii: 1
+        tool_description: 一个解析JSON对象的工具
+        tool_label: JSON 解析
+        tool_name: parse
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17507878193810.structured_output#}}'
+          json_filter:
+            type: mixed
+            value: markdown
+        type: tool
+      height: 90
+      id: '17507893912800'
+      position:
+        x: 944.642304735409
+        y: -11.776600911368448
+      positionAbsolute:
+        x: 944.642304735409
+        y: -11.776600911368448
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -287.543826430064
+      y: 106.803776832642
+      zoom: 0.923655537541027
