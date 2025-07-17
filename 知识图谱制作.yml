@@ -1,0 +1,736 @@
+app:
+  description: 根据输入的query或文档进行内容的知识图谱构建
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 知识图谱制作
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.17@c8ad1f86e58c34cfb1eba375ce579502601d40c573038b8bd1bcb75dedc90acd
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/json_process:0.0.2@dde6d7b676ccdcea89206d29232181a840170c19277d3d978e27cd1e3c92c707
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1752559882399-source-1752670708468-target
+      selected: false
+      source: '1752559882399'
+      sourceHandle: source
+      target: '1752670708468'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: tool
+      id: 17526714756260-source-17526714810850-target
+      selected: false
+      source: '17526714756260'
+      sourceHandle: source
+      target: '17526714810850'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 17526714810850-source-17526714901740-target
+      selected: false
+      source: '17526714810850'
+      sourceHandle: source
+      target: '17526714901740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1752670708468-true-1752679330735-target
+      selected: false
+      source: '1752670708468'
+      sourceHandle: 'true'
+      target: '1752679330735'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: variable-aggregator
+      id: 1752679330735-source-1752679952296-target
+      selected: false
+      source: '1752679330735'
+      sourceHandle: source
+      target: '1752679952296'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1752672451751-source-1752679952296-target
+      selected: false
+      source: '1752672451751'
+      sourceHandle: source
+      target: '1752679952296'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1752670708468-false-1752672451751-target
+      selected: false
+      source: '1752670708468'
+      sourceHandle: 'false'
+      target: '1752672451751'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1752683856697'
+        sourceType: loop-start
+        targetType: http-request
+      id: 1752683856697start-source-1752683864645-target
+      source: 1752683856697start
+      sourceHandle: source
+      target: '1752683864645'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: loop
+      id: 1752680966702-source-1752683856697-target
+      source: '1752680966702'
+      sourceHandle: source
+      target: '1752683856697'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: loop
+        targetType: http-request
+      id: 1752683856697-source-17526714756260-target
+      source: '1752683856697'
+      sourceHandle: source
+      target: '17526714756260'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: code
+      id: 1752679952296-source-1752685650928-target
+      source: '1752679952296'
+      sourceHandle: source
+      target: '1752685650928'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1752685650928-source-1752680966702-target
+      source: '1752685650928'
+      sourceHandle: source
+      target: '1752680966702'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: text
+          max_length: 48
+          options: []
+          required: false
+          type: file
+          variable: base_file
+        - label: query
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: query
+        - label: filename
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: filename
+      height: 142
+      id: '1752559882399'
+      position:
+        x: 137.56958262779636
+        y: 398.5428629954419
+      positionAbsolute:
+        x: 137.56958262779636
+        y: 398.5428629954419
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: exists
+            id: c500f060-92b9-4591-aacf-eff225b80d0d
+            value: ''
+            varType: file
+            variable_selector:
+            - '1752559882399'
+            - base_file
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 126
+      id: '1752670708468'
+      position:
+        x: 437.5160133259833
+        y: 398.5428629954419
+      positionAbsolute:
+        x: 437.5160133259833
+        y: 398.5428629954419
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2 (1)
+        type: http-request
+        url: http://192.168.3.35:8001/result/{{#1752559882399.filename#}}
+        variables: []
+      height: 143
+      id: '17526714756260'
+      position:
+        x: 1589.7077584007802
+        y: 393.2751630124716
+      positionAbsolute:
+        x: 1589.7077584007802
+        y: 393.2751630124716
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON数据
+            zh_Hans: JSON数据
+          label:
+            en_US: JSON data
+            ja_JP: JSON data
+            pt_BR: JSON data
+            zh_Hans: JSON数据
+          llm_description: JSON data to be processed
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: JSON fields to be parsed
+            ja_JP: JSON fields to be parsed
+            pt_BR: JSON fields to be parsed
+            zh_Hans: 需要解析的 JSON 字段
+          label:
+            en_US: JSON filter
+            ja_JP: JSON filter
+            pt_BR: JSON filter
+            zh_Hans: JSON解析对象
+          llm_description: JSON fields to be parsed
+          max: null
+          min: null
+          name: json_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Ensure the JSON output is ASCII encoded
+            ja_JP: Ensure the JSON output is ASCII encoded
+            pt_BR: Ensure the JSON output is ASCII encoded
+            zh_Hans: 确保输出的 JSON 是 ASCII 编码
+          label:
+            en_US: Ensure ASCII
+            ja_JP: Ensure ASCII
+            pt_BR: Ensure ASCII
+            zh_Hans: 确保 ASCII
+          llm_description: ''
+          max: null
+          min: null
+          name: ensure_ascii
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          content: ''
+          ensure_ascii: ''
+          json_filter: ''
+        provider_id: langgenius/json_process/json_process
+        provider_name: langgenius/json_process/json_process
+        provider_type: builtin
+        selected: false
+        title: JSON 解析2 (1)
+        tool_configurations:
+          ensure_ascii:
+            type: constant
+            value: true
+        tool_description: 一个解析JSON对象的工具
+        tool_label: JSON 解析
+        tool_name: parse
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17526714756260.body#}}'
+          json_filter:
+            type: mixed
+            value: file_url
+        type: tool
+        version: '2'
+      height: 122
+      id: '17526714810850'
+      position:
+        x: 1827.2657261103946
+        y: 553.0957425643558
+      positionAbsolute:
+        x: 1827.2657261103946
+        y: 553.0957425643558
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '17526714810850'
+          - text
+          value_type: string
+          variable: body
+        selected: false
+        title: 结束 (1)
+        type: end
+      height: 90
+      id: '17526714901740'
+      position:
+        x: 1973.1242973857643
+        y: 739.5318434142213
+      positionAbsolute:
+        x: 1973.1242973857643
+        y: 739.5318434142213
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1752559882399'
+          - query
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1.2
+          mode: chat
+          name: DeepSeek-V3
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 3be0951d-a944-4a75-a8be-542563445137
+          role: system
+          text: 你是一个了解所有方向知识点的全能备课专家，你能够帮助用户分析问题所需知识点并且延展知识使用方向和其它需求知识并且作为利于学生理解的知识讲稿。
+        - id: 6b7d57fe-4812-495e-a083-7bf84b87ea97
+          role: user
+          text: '{{#1752559882399.query#}} 详细讲解这个知识，利用其它关联知识来扩展知识，将各个实体间的关系讲解的清晰明了。
+
+            '
+        selected: false
+        structured_output_enabled: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1752672451751'
+      position:
+        x: 754.5566373877544
+        y: 501.3262822554469
+      positionAbsolute:
+        x: 754.5566373877544
+        y: 501.3262822554469
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1752559882399'
+        - base_file
+      height: 92
+      id: '1752679330735'
+      position:
+        x: 754.5566373877544
+        y: 337.511628919273
+      positionAbsolute:
+        x: 754.5566373877544
+        y: 337.511628919273
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1752679330735'
+          - text
+        - - '1752672451751'
+          - text
+      height: 130
+      id: '1752679952296'
+      position:
+        x: 1061.6899519894257
+        y: 337.511628919273
+      positionAbsolute:
+        x: 1061.6899519894257
+        y: 337.511628919273
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - type: text
+            value: '{{#1752685650928.var_1#}}'
+          type: raw-text
+        desc: ''
+        headers: 'accept:application/json
+
+          Content-Type:application/json'
+        method: POST
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 3
+        type: http-request
+        url: http://192.168.3.35:8001/upload
+        variables: []
+      height: 110
+      id: '1752680966702'
+      position:
+        x: 1213.803197891191
+        y: 610.6404677143861
+      positionAbsolute:
+        x: 1213.803197891191
+        y: 610.6404677143861
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        break_conditions:
+        - comparison_operator: '='
+          id: 92dbff61-e186-4266-8789-d1da313ed17c
+          value: '200'
+          varType: number
+          variable_selector:
+          - '1752683864645'
+          - status_code
+        - comparison_operator: '='
+          id: ad3f73b1-cafa-4e52-8463-bc568f81140f
+          value: '500'
+          varType: number
+          variable_selector:
+          - '1752683864645'
+          - status_code
+        desc: ''
+        error_handle_mode: terminated
+        height: 281
+        logical_operator: or
+        loop_count: 100
+        loop_variables: []
+        selected: false
+        start_node_id: 1752683856697start
+        title: 循环
+        type: loop
+        width: 452
+      height: 281
+      id: '1752683856697'
+      position:
+        x: 1332.0566328526043
+        y: 739.5318434142213
+      positionAbsolute:
+        x: 1332.0566328526043
+        y: 739.5318434142213
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 452
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1752683856697start
+      parentId: '1752683856697'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1356.0566328526043
+        y: 807.5318434142213
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1752683856697'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求55
+        type: http-request
+        url: http://192.168.3.35:8001/processing-status/{{#1752559882399.filename#}}
+        variables: []
+      height: 159
+      id: '1752683864645'
+      parentId: '1752683856697'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 1460.0566328526043
+        y: 807.5318434142213
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\n\ndef main(arg1: str,arg2: str) -> dict:\n    data = {\n    \"text_content\"\
+          : arg1,\n    \"filename\": arg2,\n    \"noteType\": \"general\",\n    \"\
+          use_img2txt\": False\n    }\n    data=json.dumps(data, ensure_ascii=False)\n\
+          \    return {\n        \"var_1\": data\n        }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          var_1:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1752679952296'
+          - output
+          value_type: string
+          variable: arg1
+        - value_selector:
+          - '1752559882399'
+          - filename
+          value_type: string
+          variable: arg2
+      height: 54
+      id: '1752685650928'
+      position:
+        x: 1124.3266184463166
+        y: 510.51754380735986
+      positionAbsolute:
+        x: 1124.3266184463166
+        y: 510.51754380735986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -192.90982986763197
+      y: -117.46834647754804
+      zoom: 0.8705505632961267
